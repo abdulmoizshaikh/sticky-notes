@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/tharunShiv/stick-it-notes/issues"
   },
-  "homepage": "https://github.com/tharunShiv/stick-it-notes#readme",
+  "homepage": "https://github.com/tharunShiv/stick-it-notes",
   "dependencies": {
     "sw-precache": "^5.2.1"
   }
