@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <title>Sticky notes</title>
-  <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="green">
+<meta name="apple-mobile-web-app-title" content="FreeCodeCamp">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-72x72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-128x128.png" sizes="128x128">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-144x144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-152x152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-384x384.png" sizes="384x384">
+<link rel="apple-touch-icon" href="/assets/images/icons/icon-512x512.png" sizes="512x512"> -->
+
+  <meta name="theme-color" content="#317EFB" />
+  <!-- IOS support -->
+  <link rel='shortcut icon' type='image/x-icon' href='assets/favicon.ico' />
+  <link rel="apple-touch-icon" href="/assets/192by192.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+  <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+  <meta name="apple-mobile-web-app-status-bar" content="#">
+
+  <script>
+    // // Detects if device is on iOS
+    // const isIos = () => {
+    //   const userAgent = window.navigator.userAgent.toLowerCase();
+    //   return /iphone|ipad|ipod/.test(userAgent);
+    // };
+    // // Detects if device is in standalone mode
+    // const isInStandaloneMode = () =>
+    //   "standalone" in window.navigator && window.navigator.standalone;
+
+    // // Checks if should display install popup notification:
+    // if (isIos() && !isInStandaloneMode()) {
+    //   this.setState({ showInstallMessage: true });
+    // }
+
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can add to home screen
+      // btnAdd.style.display = 'block';
+    });
+    // btnAdd.addEventListener('click', (e) => {
+    //   // hide our user interface that shows our A2HS button
+    //   btnAdd.style.display = 'none';
+    //   // Show the prompt
+    //   deferredPrompt.prompt();
+    //   // Wait for the user to respond to the prompt
+    //   deferredPrompt.userChoice
+    //     .then((choiceResult) => {
+    //       if (choiceResult.outcome === 'accepted') {
+    //         console.log('User accepted the A2HS prompt');
+    //       } else {
+    //         console.log('User dismissed the A2HS prompt');
+    //       }
+    //       deferredPrompt = null;
+    //     });
+    // });
+    window.addEventListener('appinstalled', (evt) => {
+      app.logEvent('a2hs', 'installed');
+    });
+
+  </script>
 </head>
 
 <body>
@@ -27,7 +101,7 @@
     </form>
   </div>
 
-  <h3 id="no-notes">No Notes Found, Add one!</h3>
+  <h2 id="no-notes">No Notes Found, Add one!</h2>
   <ul id="notes"></ul>
   <script src="myscripts.js"></script>
 </body>
